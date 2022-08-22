@@ -1,11 +1,11 @@
 import { getinputDirection } from "./input.js"
 
 let slider = document.getElementById("speedController");
-export var SNAKE_SPEED = 2;
+export var SNAKE_SPEED = 5;
 slider.oninput = function () {
     SNAKE_SPEED = this.value;
 }
-console.log(SNAKE_SPEED)
+//console.log(SNAKE_SPEED)
 const snakeBody = [{ x: 10, y: 11 }]
 export const colors = [0]
 let newSegments = 0

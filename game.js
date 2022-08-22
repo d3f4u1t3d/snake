@@ -6,14 +6,24 @@ let lastRenderTime = 0
 let gameOver = false
 const gameBoard = document.getElementById('game-board')
 export let colorcount = 1;
-let collision_gamestate = 1;
+let collision_gamestate = 0;
 var foodcolorupdater = false
 var previouscolor = 0
-collision_gamestate = prompt("Enter Collision State\n1.Collision\n0.No Collision")
-//console.log(collision_gamestate)
-
-
+const radioBtn = document.querySelectorAll('.check');
+radioBtn.forEach((ele) => {
+    // console.log(ele)
+    ele.addEventListener('click', () => rabu(ele.value));
+})
+export function rabu(radiovalue) {
+    // console.log(radiovalue);
+    collision_gamestate = radiovalue === 'True' ? 1 : 0;
+    if (collision_gamestate === 1) gameBoard.classList.add('border');
+    else gameBoard.classList.remove('border');
+    console.log(collision_gamestate);
+}
 function main(currentTime) {
+
+
     if (gameOver) {
         if (confirm('You Lost. Press ok to restart.')) {
             window.location = ''
