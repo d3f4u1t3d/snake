@@ -1,3 +1,8 @@
+import { update as updateSnake, /*draw as drawSnake,*/ SNAKE_SPEED, /*getSnakeHead, snakeIntersection, colors*/ } from './snake.js'
+//import { update as updateFood, draw as drawFood } from './food.js'
+//import { outsideGrid, wrap } from './grid.js'
+
+
 let lastRenderTime = 0
 let gameOver = false
 const gameBoard = document.getElementById('game-board')
@@ -42,8 +47,8 @@ function main(currentTime) {
 window.requestAnimationFrame(main)
 
 function update() {
-    updateSnake()
-    foodcolorupdater = updateFood(colorcount)
+    //updateSnake()
+    //foodcolorupdater = updateFood(colorcount)
     checkDeath()
 
     if (foodcolorupdater) {
@@ -61,11 +66,11 @@ function update() {
 
 function draw(colorcount) {
     gameBoard.innerHTML = ''
-    drawFood(gameBoard, colorcount)
-    drawSnake(gameBoard, previouscolor)
+    // drawFood(gameBoard, colorcount)
+    //drawSnake(gameBoard, previouscolor)
 
 }
 function checkDeath() {
     if (collision_gamestate == 1) { gameOver = outsideGrid(getSnakeHead()) || snakeIntersection() }
-    else { wrap(getSnakeHead()) }
+    // else { wrap(getSnakeHead()) }
 }
